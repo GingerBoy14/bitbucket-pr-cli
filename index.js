@@ -1,4 +1,8 @@
-import { createPullRequest, deleteGitBranch, makeCommit } from './helpers.js'
+import {
+  createPullRequest,
+  deleteGitBranch,
+  makeCommit
+} from './helpers/index.js'
 import inquirer from 'inquirer'
 import fs from 'fs'
 
@@ -30,7 +34,7 @@ const transformFileName = (name) => `${name.replace(/(.json)$/gm, '')}.json`
   ])
   const fileName = transformFileName(name)
 
-  const fileData = JSON.parse(readPackageFile(fileName))
+  const fileData = JSON.parse(fs.readFileSync(fileName))
 
   const branchName = `package-update-${version}`
 
@@ -77,7 +81,7 @@ const transformFileName = (name) => `${name.replace(/(.json)$/gm, '')}.json`
     return
   }
 
-  // TODO Potential sideeffects when branch will be deleted locally and by someone remotely - will lose changes.
+  // TODO Potential side effects when branch will be deleted locally and by someone remotely - will lose
   const { isDelete } = await inquirer.prompt([
     {
       name: 'isDelete',

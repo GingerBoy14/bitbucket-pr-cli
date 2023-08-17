@@ -1,5 +1,5 @@
 import { runCommand } from '../utils.js'
-import { USUAL_GIT_BRANCHES } from './constants.js'
+import { USUAL_GIT_BRANCHES } from '../constants.js'
 
 export const checkoutToBranch = ({ branchName, withCreate = false }) =>
   runCommand(`git checkout ${withCreate ? '-b' : ''} ${branchName}`)

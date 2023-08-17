@@ -1,4 +1,9 @@
-import { REPO_NAME, REPO_TOCKEN, REPO_WORKSPACE } from './constants.js'
+import {
+  REPO_NAME,
+  REPO_TOCKEN,
+  REPO_WORKSPACE,
+  BITBUCKET_API_URL
+} from '../constants.js'
 import fetch from 'node-fetch'
 
 export const createPullRequest = (data) => {
